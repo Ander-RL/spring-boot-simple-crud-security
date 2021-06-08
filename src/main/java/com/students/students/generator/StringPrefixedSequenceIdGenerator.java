@@ -19,6 +19,7 @@ public class StringPrefixedSequenceIdGenerator extends SequenceStyleGenerator {
     public static final String NUMBER_FORMAT_PARAMETER_VALUE = "%08d";
 
     public static final String VALUE_PREFIX_STUDENT = "STU";
+    public static final String VALUE_PREFIX_PERSONA = "PER";
     public static final String VALUE_PREFIX_MATERIA = "MAT";
     public static final String VALUE_PREFIX_NOTA = "NT";
     public static final String VALUE_PREFIX_STUDY = "STU";
