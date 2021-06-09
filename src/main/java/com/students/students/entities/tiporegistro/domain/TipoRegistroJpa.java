@@ -27,7 +27,7 @@ public class TipoRegistroJpa {
 
     public TipoRegistroJpa(TipoRegistroInputDto tipoRegistroInputDto) {
         setName(tipoRegistroInputDto.getName());
-        setDate(tipoRegistroInputDto.getLastUpdate());
+        setLastUpdate(tipoRegistroInputDto.getLastUpdate());
         this.activo = tipoRegistroInputDto.getActivo();
     }
 
@@ -50,32 +50,12 @@ public class TipoRegistroJpa {
     @Column(name = "id_tipo_registro")
     private String idTipoRegistro;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "last_update")
+    @Column(name = "last_update", nullable = false)
     private Date lastUpdate;
 
     @Column(name = "activo")
     private Boolean activo;
-
-    public void setName(String name) {
-        if (name == null) throw new NullException("Name no puede ser null");
-        this.name = name;
-    }
-
-    public void setDate(String date) {
-        if (date == null) throw new NullException("Date no puede ser null");
-
-        Date parsedDated = null;
-        try {
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            dateFormat.setTimeZone(TimeZone.getTimeZone("CEST"));
-            dateFormat.setLenient(false);
-            parsedDated = dateFormat.parse(date);
-        } catch (Exception e) {
-            throw new InvalidDateException("La fecha no cumple con el formato dd/MM/yyyy o no es una fecha válida.");
-        }
-        this.lastUpdate = parsedDated;
-    }
 }
