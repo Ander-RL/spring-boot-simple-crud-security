@@ -1,5 +1,6 @@
 package com.students.students.entities.persona.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.students.students.entities.persona.domain.PersonaJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,8 @@ public class PersonaOutputDto {
     private String personalEmail;
     private String city;
     private Boolean active;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date createdDate;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date terminationDate;
 }

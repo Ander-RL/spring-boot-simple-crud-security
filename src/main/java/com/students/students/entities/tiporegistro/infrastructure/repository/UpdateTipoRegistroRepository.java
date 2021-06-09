@@ -32,21 +32,11 @@ public class UpdateTipoRegistroRepository implements UpdateTipoRegistroPort {
 
     private TipoRegistroJpa updatedTipoRegistro(TipoRegistroJpa tipoRegistroJpa, TipoRegistroInputDto tipoRegistroInputDto, String idTipoRegistro) {
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("CEST"));
-        dateFormat.setLenient(false);
-        Date date = null;
-        try {
-            date = dateFormat.parse(tipoRegistroInputDto.getLastUpdate());
-        } catch (Exception e) {
-            throw new InvalidDateException();
-        }
-
         if (tipoRegistroInputDto.getName() != null)
             tipoRegistroJpa.setName(tipoRegistroInputDto.getName());
 
         if (tipoRegistroInputDto.getLastUpdate() != null)
-            tipoRegistroJpa.setLastUpdate(date);
+            tipoRegistroJpa.setLastUpdate(tipoRegistroInputDto.getLastUpdate());
 
         if (tipoRegistroInputDto.getActivo() != null)
             tipoRegistroJpa.setActivo(tipoRegistroInputDto.getActivo());
