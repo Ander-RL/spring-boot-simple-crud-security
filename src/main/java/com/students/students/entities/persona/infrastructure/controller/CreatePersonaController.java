@@ -1,5 +1,8 @@
 package com.students.students.entities.persona.infrastructure.controller;
 
+import com.students.students.entities.persona.domain.dto.PersonaInputDto;
+import com.students.students.entities.persona.domain.dto.PersonaOutputDto;
+import com.students.students.entities.persona.infrastructure.repository.port.CreatePersonaPort;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroInputDto;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroOutputDto;
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.CreateTipoRegistroPort;
@@ -11,17 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "TipoRegistro")
+@Api(tags = "Persona")
 @AllArgsConstructor
 @RestController
 public class CreatePersonaController {
 
-    private final CreateTipoRegistroPort createTipoRegistroPort;
+    private final CreatePersonaPort createPersonaPort;
 
-    @PostMapping("/api/tipo_registro/")
-    public ResponseEntity<TipoRegistroOutputDto> create(@RequestBody TipoRegistroInputDto tipoRegistroInputDto){
+    @PostMapping("/api/persona/")
+    public ResponseEntity<PersonaOutputDto> create(@RequestBody PersonaInputDto personaInputDto){
 
-        TipoRegistroOutputDto tipoRegistroOutputDto = createTipoRegistroPort.create(tipoRegistroInputDto);
-        return new ResponseEntity<>(tipoRegistroOutputDto, HttpStatus.OK);
+        PersonaOutputDto personaOutputDto = createPersonaPort.create(personaInputDto);
+        return new ResponseEntity<>(personaOutputDto, HttpStatus.OK);
     }
 }

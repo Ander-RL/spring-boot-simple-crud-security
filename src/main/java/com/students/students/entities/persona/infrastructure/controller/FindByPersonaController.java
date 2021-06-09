@@ -1,5 +1,8 @@
 package com.students.students.entities.persona.infrastructure.controller;
 
+import com.students.students.entities.persona.domain.dto.PersonaOutputDto;
+import com.students.students.entities.persona.domain.dto.PersonaSearchInputDto;
+import com.students.students.entities.persona.infrastructure.repository.port.FindByPersonaPort;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroOutputDto;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroSearchInputDto;
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.FindByTipoRegistroPort;
@@ -12,18 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(tags = "TipoRegistro")
+@Api(tags = "Persona")
 @AllArgsConstructor
 @RestController
 public class FindByPersonaController {
 
-    FindByTipoRegistroPort findByTipoRegistroPort;
+    FindByPersonaPort findByPersonaPort;
 
-    @PostMapping("/api/tipo_registro/findby")
-    List<TipoRegistroOutputDto> findBy(@RequestBody TipoRegistroSearchInputDto tipoRegistroSearchInputDto){
-        if(findByTipoRegistroPort.findBy(tipoRegistroSearchInputDto).isEmpty()) {
-            throw new NotFoundException();
-        }
-        return findByTipoRegistroPort.findBy(tipoRegistroSearchInputDto);
+    @PostMapping("/api/persona/findby")
+    List<PersonaOutputDto> findBy(@RequestBody PersonaSearchInputDto personaSearchInputDto){
+        return findByPersonaPort.findBy(personaSearchInputDto);
     }
 }

@@ -48,7 +48,6 @@ public class FindByPersonaRepository implements FindByPersonaPort {
     }
 
     private Predicate getPredicate(PersonaSearchInputDto personaSearchInputDto, CriteriaBuilder criteriaBuilder, Root<PersonaJpa> persona) {
-        // TODO actulizar
         Predicate finalPredicate = null;
         if (personaSearchInputDto.getUser() != null){
             Predicate predicado = criteriaBuilder.equal(persona.get("user"), personaSearchInputDto.getUser());
@@ -69,7 +68,7 @@ public class FindByPersonaRepository implements FindByPersonaPort {
             }
         }
         if (personaSearchInputDto.getSurname() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+            Predicate predicado = criteriaBuilder.equal(persona.get("surname"), personaSearchInputDto.getSurname());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -77,8 +76,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getCompanyEmail() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("companyEmail"), personaSearchInputDto.getCompanyEmail());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -86,8 +85,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getPersonalEmail() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("personalEmail"), personaSearchInputDto.getPersonalEmail());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -95,8 +94,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getCity() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("city"), personaSearchInputDto.getCity());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -104,8 +103,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getActive() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("active"), personaSearchInputDto.getActive());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -113,8 +112,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getCreatedDate() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("createdDate"), personaSearchInputDto.getCreatedDate());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -122,8 +121,8 @@ public class FindByPersonaRepository implements FindByPersonaPort {
                 finalPredicate = predicado;
             }
         }
-        if (personaSearchInputDto.getPassword() != null){
-            Predicate predicado = criteriaBuilder.equal(persona.get("password"), personaSearchInputDto.getPassword());
+        if (personaSearchInputDto.getTerminationDate() != null){
+            Predicate predicado = criteriaBuilder.equal(persona.get("terminationDate"), personaSearchInputDto.getTerminationDate());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);

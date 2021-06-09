@@ -1,5 +1,7 @@
 package com.students.students.entities.persona.infrastructure.controller;
 
+import com.students.students.entities.persona.domain.dto.PersonaInputDto;
+import com.students.students.entities.persona.infrastructure.repository.port.UpdatePersonaPort;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroInputDto;
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.UpdateTipoRegistroPort;
 import io.swagger.annotations.Api;
@@ -9,15 +11,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "TipoRegistro")
+@Api(tags = "Persona")
 @AllArgsConstructor
 @RestController
 public class UpdatePersonaController {
 
-    private UpdateTipoRegistroPort updateTipoRegistroPort;
+    private UpdatePersonaPort updatePersonaPort;
 
-    @PutMapping("/api/tipo_registro/{id}")
-    public void update(@PathVariable("id") String idTipoRegistro, @RequestBody TipoRegistroInputDto tipoRegistroInputDto) {
-        updateTipoRegistroPort.update(idTipoRegistro, tipoRegistroInputDto);
+    @PutMapping("/api/persona/{id}")
+    public void update(@PathVariable("id") String idPersona, @RequestBody PersonaInputDto personaInputDto) {
+        updatePersonaPort.update(idPersona, personaInputDto);
     }
 }

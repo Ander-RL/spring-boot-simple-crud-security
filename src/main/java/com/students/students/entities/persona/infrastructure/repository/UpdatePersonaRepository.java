@@ -8,6 +8,7 @@ import com.students.students.entities.persona.infrastructure.repository.port.Upd
 import com.students.students.entities.tiporegistro.domain.TipoRegistroJpa;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroInputDto;
 import com.students.students.exception.InvalidDateException;
+import com.sun.xml.bind.v2.TODO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -35,19 +36,35 @@ public class UpdatePersonaRepository implements UpdatePersonaPort {
 
     private PersonaJpa updatedPersona(PersonaJpa personaJpa, PersonaInputDto personaInputDto, String idPersona) {
 
-         // TODO actualizar campos
-//
-//        if (tipoRegistroInputDto.getName() != null)
-//            tipoRegistroJpa.setName(tipoRegistroInputDto.getName());
-//
-//        if (tipoRegistroInputDto.getLastUpdate() != null)
-//            tipoRegistroJpa.setLastUpdate(date);
-//
-//        if (tipoRegistroInputDto.getActivo() != null)
-//            tipoRegistroJpa.setActivo(tipoRegistroInputDto.getActivo());
-//
-//        tipoRegistroJpa.setIdTipoRegistro(idTipoRegistro);
+        if (personaInputDto.getUser() != null)
+            personaJpa.setUser(personaInputDto.getUser());
 
-        return personaJpaaaaaa;
+        if (personaInputDto.getPassword() != null)
+            personaJpa.setPassword(personaInputDto.getPassword());
+
+        if (personaInputDto.getSurname() != null)
+            personaJpa.setSurname(personaInputDto.getSurname());
+
+        if (personaInputDto.getCompanyEmail() != null)
+            personaJpa.setCompanyEmail(personaInputDto.getCompanyEmail());
+
+        if (personaInputDto.getPersonalEmail() != null)
+            personaJpa.setPersonalEmail(personaInputDto.getPersonalEmail());
+
+        if (personaInputDto.getCity() != null)
+            personaJpa.setCity(personaInputDto.getCity());
+
+        if (personaInputDto.getActive() != null)
+            personaJpa.setActive(personaInputDto.getActive());
+
+        if (personaInputDto.getCreatedDate() != null)
+            personaJpa.setCreatedDate(personaInputDto.getCreatedDate());
+
+        if (personaInputDto.getTerminationDate() != null)
+            personaJpa.setTerminationDate(personaInputDto.getTerminationDate());
+
+        personaJpa.setIdPersona(idPersona);
+
+        return personaJpa;
     }
 }
