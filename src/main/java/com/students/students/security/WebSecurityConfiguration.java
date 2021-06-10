@@ -34,7 +34,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                //.antMatchers("/api/**").hasAnyRole("ESTUDIANTE", "PROFESOR")
                 .antMatchers("/authenticate").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
@@ -42,8 +41,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
-        //http.csrf().disable().authorizeRequests().anyRequest().permitAll();
     }
 
     @Override
