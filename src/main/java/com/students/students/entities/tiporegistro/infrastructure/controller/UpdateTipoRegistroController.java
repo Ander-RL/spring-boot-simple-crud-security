@@ -4,6 +4,7 @@ import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroInputD
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.UpdateTipoRegistroPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ public class UpdateTipoRegistroController {
 
     private UpdateTipoRegistroPort updateTipoRegistroPort;
 
+    @PreAuthorize("hasRole('PROFESOR')")
     @PutMapping("/api/tipo_registro/{id}")
     public void update(@PathVariable("id") String idTipoRegistro, @RequestBody TipoRegistroInputDto tipoRegistroInputDto) {
         updateTipoRegistroPort.update(idTipoRegistro, tipoRegistroInputDto);
