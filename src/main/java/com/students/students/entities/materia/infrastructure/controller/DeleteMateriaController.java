@@ -3,6 +3,7 @@ package com.students.students.entities.materia.infrastructure.controller;
 import com.students.students.entities.materia.infrastructure.repository.port.DeleteMateriaPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeleteMateriaController {
 
     DeleteMateriaPort deleteMateriaPort;
-
+    @PreAuthorize("hasRole('PROFESOR')")
     @DeleteMapping("/api/materia/{id}")
     public void deleteById(@PathVariable("id") String idMateria) {
         deleteMateriaPort.deleteById(idMateria);

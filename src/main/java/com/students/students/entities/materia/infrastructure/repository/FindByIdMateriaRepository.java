@@ -14,7 +14,7 @@ public class FindByIdMateriaRepository implements FindByIdMateriaPort {
     MateriaRepositoryJpa repository;
 
     @Override
-    public MateriaOutputDto findById(String idTipoRegistro) {
-        return new MateriaOutputDto(repository.findById(idTipoRegistro).orElseThrow(() -> new NotFoundException("No se encontro TipoRegistro con id -> " + idTipoRegistro)));
+    public MateriaOutputDto findById(String idMateria) {
+        return new MateriaOutputDto(repository.findById(idMateria).orElseThrow(() -> new NotFoundException("No se encontro Materia con id -> " + idMateria)));
     }
 }

@@ -21,9 +21,9 @@ import javax.persistence.*;
 public class MateriaJpa {
 
     public MateriaJpa(MateriaInputDto materiaInputDto) {
-        setName(materiaInputDto.getName());
-        setDescription(materiaInputDto.getDescription());
-        setBranch (materiaInputDto.getBranch());
+        this.name = materiaInputDto.getName();
+        this.description = materiaInputDto.getDescription();
+        this.branch = materiaInputDto.getBranch();
     }
 
     public MateriaJpa(MateriaOutputDto materiaOutputDto) {
@@ -54,16 +54,4 @@ public class MateriaJpa {
     @Column(name = "branch")
     private BranchEnum branch;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setBranch(BranchEnum name) {
-        if (name == null) throw new NullException("Branch no puede ser null");
-        this.branch = branch;
-    }
 }
