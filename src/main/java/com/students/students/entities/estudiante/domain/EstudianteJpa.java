@@ -4,6 +4,7 @@ package com.students.students.entities.estudiante.domain;
 import com.students.students.entities.estudiante.domain.dto.EstudianteInputDto;
 import com.students.students.entities.estudiante.domain.dto.EstudianteOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
+import com.students.students.entities.persona.domain.PersonaJpa;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -58,4 +59,10 @@ public class EstudianteJpa {
 
     @Column(name = "branch", nullable = false)
     BranchEnum branchEnum;
+
+    @OneToOne
+    @JoinColumn (name="fk_persona")
+    private PersonaJpa persona;
+
+
 }

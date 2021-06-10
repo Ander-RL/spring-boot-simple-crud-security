@@ -1,5 +1,6 @@
 package com.students.students.entities.persona.domain;
 
+import com.students.students.entities.estudiante.domain.EstudianteJpa;
 import com.students.students.entities.persona.domain.dto.PersonaInputDto;
 import com.students.students.entities.persona.domain.dto.PersonaOutputDto;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -80,4 +82,8 @@ public class PersonaJpa {
 
     @Column(name = "termination_date")
     private Date terminationDate;
+
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
+    private EstudianteJpa studentList;
+
 }
