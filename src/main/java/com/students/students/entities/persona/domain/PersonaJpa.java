@@ -85,4 +85,5 @@ public class PersonaJpa {
 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
     private EstudianteJpa studentList;
+
 }
