@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 public class MateriaOutputDto {
 
     public MateriaOutputDto(MateriaJpa materiaJpa){
+        this.idMateria=materiaJpa.getIdMateria();
         this.name = materiaJpa.getName();
         this.description = materiaJpa.getDescription();
         this.branch = materiaJpa.getBranch();
     }
-
+    private String idMateria;
     private String name;
     private String description;
     private BranchEnum branch;
