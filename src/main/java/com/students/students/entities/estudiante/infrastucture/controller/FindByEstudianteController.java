@@ -7,6 +7,7 @@ import com.students.students.entities.estudiante.infrastucture.repository.port.F
 import com.students.students.exception.NotFoundException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import java.util.List;
 public class FindByEstudianteController {
 
     FindByEstudiantePort findByEstudiantePort;
-
+    @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
     @PostMapping("/api/estudiante/findby")
     public List<EstudianteOutputDto> findBy(@RequestBody EstudianteSearchInputDto estudianteSearchInputDto) {
         return findByEstudiantePort.findBy(estudianteSearchInputDto);
