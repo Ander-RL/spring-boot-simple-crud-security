@@ -6,6 +6,7 @@ import com.students.students.entities.materia.infrastructure.repository.port.Fin
 import com.students.students.exception.NotFoundException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ import java.util.List;
 public class FindByMateriaController {
 
     FindByMateriaPort findByMateriaPort;
-
+    @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
     @PostMapping("/api/materia/findby")
     List<MateriaOutputDto> findBy(@RequestBody MateriaSearchInputDto materiaSearchInputDto){
         if(findByMateriaPort.findBy(materiaSearchInputDto).isEmpty()) {

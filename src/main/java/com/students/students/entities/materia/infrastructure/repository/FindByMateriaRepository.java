@@ -30,9 +30,9 @@ public class FindByMateriaRepository implements FindByMateriaPort {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<MateriaJpa> criteriaQuery = criteriaBuilder.createQuery(MateriaJpa.class);
 
-        Root<MateriaJpa> tipoRegistro = criteriaQuery.from(MateriaJpa.class);
+        Root<MateriaJpa> materia = criteriaQuery.from(MateriaJpa.class);
 
-        Predicate finalPredicate = getPredicate(materiaSearchInputDto, criteriaBuilder, tipoRegistro);
+        Predicate finalPredicate = getPredicate(materiaSearchInputDto, criteriaBuilder, materia);
 
         criteriaQuery.where(finalPredicate);
 
@@ -44,10 +44,10 @@ public class FindByMateriaRepository implements FindByMateriaPort {
                 .collect(Collectors.toList());
     }
 
-    private Predicate getPredicate(MateriaSearchInputDto materiaSearchInputDto, CriteriaBuilder criteriaBuilder, Root<MateriaJpa> tipoRegistro) {
+    private Predicate getPredicate(MateriaSearchInputDto materiaSearchInputDto, CriteriaBuilder criteriaBuilder, Root<MateriaJpa> materia) {
         Predicate finalPredicate = null;
         if (materiaSearchInputDto.getName() != null){
-            Predicate predicado = criteriaBuilder.equal(tipoRegistro.get("name"), materiaSearchInputDto.getName());
+            Predicate predicado = criteriaBuilder.equal(materia.get("name"), materiaSearchInputDto.getName());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -56,7 +56,7 @@ public class FindByMateriaRepository implements FindByMateriaPort {
             }
         }
         if (materiaSearchInputDto.getDescription() != null){
-            Predicate predicado = criteriaBuilder.equal(tipoRegistro.get("description"), materiaSearchInputDto.getDescription());
+            Predicate predicado = criteriaBuilder.equal(materia.get("description"), materiaSearchInputDto.getDescription());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);
@@ -65,7 +65,7 @@ public class FindByMateriaRepository implements FindByMateriaPort {
             }
         }
         if (materiaSearchInputDto.getBranch() != null){
-            Predicate predicado = criteriaBuilder.equal(tipoRegistro.get("branch"), materiaSearchInputDto.getBranch());
+            Predicate predicado = criteriaBuilder.equal(materia.get("branch"), materiaSearchInputDto.getBranch());
 
             if (finalPredicate != null){
                 finalPredicate = criteriaBuilder.and(finalPredicate,predicado);

@@ -13,7 +13,7 @@ public class DeleteMateriaRepository implements DeleteMateriaPort {
     MateriaRepositoryJpa repository;
 
     @Override
-    public void deleteById(String idTipoRegistro) {
-        repository.delete(repository.findById(idTipoRegistro).orElseThrow(() -> new NotFoundException("No se encontro TipoRegistro con id -> " + idTipoRegistro)));
+    public void deleteById(String idMateria) {
+        repository.delete(repository.findById(idMateria).orElseThrow(() -> new NotFoundException("No se encontro Materia con id -> " + idMateria)));
     }
 }

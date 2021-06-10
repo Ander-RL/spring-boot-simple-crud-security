@@ -22,8 +22,8 @@ public class FindAllMateriaRepository implements FindAllMateriaPort {
         List<MateriaOutputDto> listOut = new ArrayList<>();
         List<MateriaJpa> listIn = repository.findAll();
 
-        for(MateriaJpa tipoRegistro : listIn) {
-            listOut.add(new MateriaOutputDto(tipoRegistro));
+        for(MateriaJpa materia : listIn) {
+            listOut.add(new MateriaOutputDto(materia));
         }
         return listOut;
     }
