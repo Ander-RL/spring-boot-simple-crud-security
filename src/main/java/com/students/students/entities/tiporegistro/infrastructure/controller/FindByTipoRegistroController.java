@@ -6,6 +6,7 @@ import com.students.students.entities.tiporegistro.infrastructure.repository.por
 import com.students.students.exception.NotFoundException;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class FindByTipoRegistroController {
 
     FindByTipoRegistroPort findByTipoRegistroPort;
 
+    @PreAuthorize("hasRole('PROFESOR')")
     @PostMapping("/api/tipo_registro/findby")
     List<TipoRegistroOutputDto> findBy(@RequestBody TipoRegistroSearchInputDto tipoRegistroSearchInputDto){
         if(findByTipoRegistroPort.findBy(tipoRegistroSearchInputDto).isEmpty()) {

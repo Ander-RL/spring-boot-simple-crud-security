@@ -6,6 +6,7 @@ import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroOutput
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.FindAllTipoRegistroPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ public class FindAllPersonaController {
 
     private final FindAllPersonaPort findAllPersonaPort;
 
+    @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
     @GetMapping("/api/persona/")
     public List<PersonaOutputDto> findAll(){
         return findAllPersonaPort.findAll();

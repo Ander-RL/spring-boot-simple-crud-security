@@ -4,6 +4,7 @@ import com.students.students.entities.persona.infrastructure.repository.port.Del
 import com.students.students.entities.tiporegistro.infrastructure.repository.port.DeleteTipoRegistroPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class DeletePersonaController {
 
     DeletePersonaPort deletePersonaPort;
 
+    @PreAuthorize("hasRole('PROFESOR')")
     @DeleteMapping("/api/persona/{id}")
     public void deleteById(@PathVariable("id") String idPersona) {
         deletePersonaPort.deleteById(idPersona);
