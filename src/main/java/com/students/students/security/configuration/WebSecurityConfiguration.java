@@ -1,4 +1,4 @@
-package com.students.students.security;
+package com.students.students.security.configuration;
 
 import com.students.students.security.filters.JwtRequestFilter;
 import com.students.students.security.services.MyUserDetailsService;
@@ -34,6 +34,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/swagger*").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
