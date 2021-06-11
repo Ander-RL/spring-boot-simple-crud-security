@@ -3,6 +3,7 @@ package com.students.students.entities.materia.domain;
 import com.students.students.entities.materia.domain.dto.MateriaInputDto;
 import com.students.students.entities.materia.domain.dto.MateriaOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
+import com.students.students.entities.nota.domain.NotaJpa;
 import com.students.students.exception.NullException;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
+import java.util.List;
 
 @Slf4j
 @Entity
@@ -53,5 +55,8 @@ public class MateriaJpa {
 
     @Column(name = "branch")
     private BranchEnum branch;
+
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NotaJpa> notaList;
 
 }

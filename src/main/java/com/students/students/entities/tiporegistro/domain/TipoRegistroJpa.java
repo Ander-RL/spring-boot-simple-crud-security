@@ -1,5 +1,6 @@
 package com.students.students.entities.tiporegistro.domain;
 
+import com.students.students.entities.nota.domain.NotaJpa;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroInputDto;
 import com.students.students.entities.tiporegistro.domain.dto.TipoRegistroOutputDto;
 import com.students.students.exception.InvalidDateException;
@@ -58,4 +59,8 @@ public class TipoRegistroJpa {
 
     @Column(name = "activo")
     private Boolean activo;
+
+
+    @OneToMany(mappedBy = "tipoRegistro", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NotaJpa> notaList;
 }

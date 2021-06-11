@@ -4,6 +4,7 @@ package com.students.students.entities.estudiante.domain;
 import com.students.students.entities.estudiante.domain.dto.EstudianteInputDto;
 import com.students.students.entities.estudiante.domain.dto.EstudianteOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
+import com.students.students.entities.nota.domain.NotaJpa;
 import com.students.students.entities.persona.domain.PersonaJpa;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -63,6 +65,9 @@ public class EstudianteJpa {
     @OneToOne
     @JoinColumn (name="fk_persona")
     private PersonaJpa persona;
+
+    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NotaJpa> notaList;
 
 
 }
