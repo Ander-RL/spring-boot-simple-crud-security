@@ -22,7 +22,7 @@ public class CreatePersonaController {
 
     private final CreatePersonaPort createPersonaPort;
 
-    @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
+    @PreAuthorize(" hasRole('PROFESOR')")
     @PostMapping("/api/persona/")
     public ResponseEntity<PersonaOutputDto> create(@RequestBody PersonaInputDto personaInputDto){
 

@@ -19,7 +19,7 @@ public class UpdatePersonaController {
 
     private UpdatePersonaPort updatePersonaPort;
 
-    @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
+    @PreAuthorize("hasRole('PROFESOR')")
     @PutMapping("/api/persona/{id}")
     public void update(@PathVariable("id") String idPersona, @RequestBody PersonaInputDto personaInputDto) {
         updatePersonaPort.update(idPersona, personaInputDto);
