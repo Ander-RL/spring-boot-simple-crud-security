@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -32,6 +33,7 @@ public class MateriaJpa {
         this.name = materiaOutputDto.getName();
         this.description = materiaOutputDto.getDescription();
         this.branch = materiaOutputDto.getBranch();
+        this.notaList = materiaOutputDto.getNotaList();
     }
 
     @Id
@@ -57,6 +59,6 @@ public class MateriaJpa {
     private BranchEnum branch;
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NotaJpa> notaList;
+    private List<NotaJpa> notaList = new ArrayList<>();
 
 }
