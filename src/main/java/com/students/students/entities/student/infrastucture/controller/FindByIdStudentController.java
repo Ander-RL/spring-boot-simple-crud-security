@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @AllArgsConstructor
 @RestController
 public class FindByIdStudentController {
 
     FindByIdStudentPort findByIdStudentPort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
-    @GetMapping("/api/estudiante/{id}")
+    @GetMapping("/api/student/{id}")
     public StudentOutputDto findById(@PathVariable("id") String id) {
         return findByIdStudentPort.findById(id);
     }

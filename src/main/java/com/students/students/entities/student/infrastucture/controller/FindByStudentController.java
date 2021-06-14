@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @RestController
 @AllArgsConstructor
 public class FindByStudentController {
 
     FindByStudentPort findByStudentPort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
-    @PostMapping("/api/estudiante/findby")
+    @PostMapping("/api/student/findby")
     public List<StudentOutputDto> findBy(@RequestBody StudentSearchInputDto studentSearchInputDto) {
         return findByStudentPort.findBy(studentSearchInputDto);
     }

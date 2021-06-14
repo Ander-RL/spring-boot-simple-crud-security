@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @AllArgsConstructor
 @RestController
 public class DeleteStudentController {
 
     DeleteStudentPort deleteStudentPort;
     @PreAuthorize("hasRole('PROFESOR')")
-    @DeleteMapping("/api/estudiante/{id_estudiante}")
-    public void deleteByID(@PathVariable("id_estudiante") String idEstudiante){
+    @DeleteMapping("/api/student/{id_student}")
+    public void deleteByID(@PathVariable("id_student") String idEstudiante){
         deleteStudentPort.deleteById(idEstudiante);
     }
 }

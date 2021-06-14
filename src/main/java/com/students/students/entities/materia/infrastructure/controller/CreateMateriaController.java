@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CreateMateriaController {
 
     private final CreateMateriaPort createMateriaPort;
+
     @PreAuthorize("hasRole('PROFESOR')")
     @PostMapping("/api/materia/")
-    public ResponseEntity<MateriaOutputDto> create(@RequestBody MateriaInputDto materiaInputDto){
+    public ResponseEntity<MateriaOutputDto> create(@RequestBody MateriaInputDto materiaInputDto) {
 
         MateriaOutputDto materiaOutputDto = createMateriaPort.create(materiaInputDto);
         return new ResponseEntity<>(materiaOutputDto, HttpStatus.OK);

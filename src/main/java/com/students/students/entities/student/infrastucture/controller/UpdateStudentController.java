@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @RestController
 @AllArgsConstructor
 public class UpdateStudentController {
 
     private UpdateStudentPort updateStudentPort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
-    @PutMapping("/api/estudiante/{id}")
+    @PutMapping("/api/student/{id}")
     public void update(@RequestBody StudentInputDto studentInputDto, @PathVariable("id") String id) {
         updateStudentPort.update(id, studentInputDto);
     }

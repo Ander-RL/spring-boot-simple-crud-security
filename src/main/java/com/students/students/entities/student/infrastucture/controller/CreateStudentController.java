@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @AllArgsConstructor
 @RestController
 public class CreateStudentController {
@@ -20,7 +20,7 @@ public class CreateStudentController {
     private final CreateStudentPort createStudentPort;
 
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
-    @PostMapping("/api/estudiante/")
+    @PostMapping("/api/student/")
     public ResponseEntity<StudentOutputDto> create(@RequestBody StudentInputDto studentInputDto){
 
         StudentOutputDto studentOutputDto = createStudentPort.create(studentInputDto);
