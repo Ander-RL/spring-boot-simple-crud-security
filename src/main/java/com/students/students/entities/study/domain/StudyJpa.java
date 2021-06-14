@@ -1,6 +1,8 @@
 package com.students.students.entities.study.domain;
 
 
+import com.students.students.entities.materia.domain.MateriaJpa;
+import com.students.students.entities.student.domain.StudentJpa;
 import com.students.students.entities.study.domain.dto.StudyInputDto;
 import com.students.students.entities.study.domain.dto.StudyOutputDto;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
@@ -69,5 +71,13 @@ public class StudyJpa {
 
     @Column(name = "finish_date", nullable = false)
     private Date finishDate;
+
+    @ManyToOne()
+    @JoinColumn(name = "fk_student")
+    private StudentJpa student;
+
+    @ManyToOne()
+    @JoinColumn(name = "fk_materia")
+    private MateriaJpa materia;
 
 }
