@@ -23,25 +23,25 @@ import java.util.List;
 public class StudentJpa {
 
     public StudentJpa(StudentInputDto studentInputDto) {
-        setNumHoursWeek(studentInputDto.getNumHoursWeek());
-        setComents(studentInputDto.getComents());
-        setBranchEnum(studentInputDto.getBranchEnum());
+        this.numHoursWeek = studentInputDto.getNumHoursWeek();
+        this.coments = studentInputDto.getComents();
+        this.branchEnum = studentInputDto.getBranchEnum();
     }
 
     public StudentJpa(StudentOutputDto studentOutputDto){
-        setNumHoursWeek(studentOutputDto.getNumHoursWeek());
-        setComents(studentOutputDto.getComents());
-        setBranchEnum(studentOutputDto.getBranchEnum());
+        this.numHoursWeek = studentOutputDto.getNumHoursWeek();
+        this.coments = studentOutputDto.getComents();
+        this.branchEnum = studentOutputDto.getBranchEnum();
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estudiantes_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_seq")
     @GenericGenerator(
-            name = "estudiantes_seq",
+            name = "student_seq",
             strategy = StringPrefixedSequenceIdGenerator.SEQUENCE_STRING,
             parameters = {
             @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM_VALUE),
-            @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_ESTUDIANTE),
+            @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_STUDENT),
             @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER_VALUE)
             })
     @Column(name = "id_student")
