@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Api(tags = "Estudiante")
+@Api(tags = "Student")
 @AllArgsConstructor
 @RestController
 public class FindAllStudentController {
 
     private FindAllStudentPort findEstudiantePort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
-    @GetMapping("/api/estudiante")
+    @GetMapping("/api/student")
     public List<StudentOutputDto> findAll() {
         return findEstudiantePort.findAll();
     }

@@ -6,9 +6,12 @@ import com.students.students.entities.materia.domain.dto.MateriaOutputDto;
 import com.students.students.entities.materia.infrastructure.repository.jpa.MateriaRepositoryJpa;
 import com.students.students.entities.materia.infrastructure.repository.port.CreateMateriaPort;
 import com.students.students.exception.NullException;
+import com.students.students.exception.RestrictionException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Slf4j
 @AllArgsConstructor
@@ -21,6 +24,9 @@ public class CreateMateriaRepository implements CreateMateriaPort {
     public MateriaOutputDto create(MateriaInputDto materiaInputDto) {
         log.debug("Materia creada -> " + materiaInputDto.toString());
 
+        checkName(materiaInputDto);
+        checkNulls(materiaInputDto);
+
         MateriaJpa materiaJpa = new MateriaJpa(materiaInputDto);
 
         repository.save(materiaJpa);
@@ -29,5 +35,15 @@ public class CreateMateriaRepository implements CreateMateriaPort {
     private void checkNulls(MateriaInputDto materiaInputDto){
         if(materiaInputDto.getBranch() == null)
             throw new NullException("Branch no puede ser null");
+    }
+
+    private void checkName(MateriaInputDto materiaInputDto) {
+        List<MateriaJpa> listaMateria = repository.findAll();
+
+        for(MateriaJpa materiaJpa : listaMateria) {
+            if(materiaJpa.getName().equals(materiaInputDto.getName())) {
+                throw new RestrictionException("materia con nombre"+ materiaJpa.getName() + " ya existe");
+            }
+        }
     }
 }
