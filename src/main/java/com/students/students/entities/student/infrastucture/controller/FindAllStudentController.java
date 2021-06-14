@@ -1,7 +1,7 @@
-package com.students.students.entities.estudiante.infrastucture.controller;
+package com.students.students.entities.student.infrastucture.controller;
 
-import com.students.students.entities.estudiante.domain.dto.EstudianteOutputDto;
-import com.students.students.entities.estudiante.infrastucture.repository.port.FindAllEstudiantesPort;
+import com.students.students.entities.student.domain.dto.StudentOutputDto;
+import com.students.students.entities.student.infrastucture.repository.port.FindAllStudentPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,12 +13,12 @@ import java.util.List;
 @Api(tags = "Estudiante")
 @AllArgsConstructor
 @RestController
-public class FindAllEstudiantesController {
+public class FindAllStudentController {
 
-    private FindAllEstudiantesPort findEstudiantePort;
+    private FindAllStudentPort findEstudiantePort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
     @GetMapping("/api/estudiante")
-    public List<EstudianteOutputDto> findAll() {
+    public List<StudentOutputDto> findAll() {
         return findEstudiantePort.findAll();
     }
 }

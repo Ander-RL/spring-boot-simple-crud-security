@@ -1,8 +1,8 @@
-package com.students.students.entities.estudiante.infrastucture.controller;
+package com.students.students.entities.student.infrastucture.controller;
 
 
-import com.students.students.entities.estudiante.domain.dto.EstudianteInputDto;
-import com.students.students.entities.estudiante.infrastucture.repository.port.UpdateEstudiantePort;
+import com.students.students.entities.student.domain.dto.StudentInputDto;
+import com.students.students.entities.student.infrastucture.repository.port.UpdateStudentPort;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Estudiante")
 @RestController
 @AllArgsConstructor
-public class UpdateEstudianteController {
+public class UpdateStudentController {
 
-    private UpdateEstudiantePort updateEstudiantePort;
+    private UpdateStudentPort updateStudentPort;
     @PreAuthorize("hasRole('ESTUDIANTE') || hasRole('PROFESOR')")
     @PutMapping("/api/estudiante/{id}")
-    public void update(@RequestBody EstudianteInputDto estudianteInputDto, @PathVariable("id") String id) {
-        updateEstudiantePort.update(id,estudianteInputDto);
+    public void update(@RequestBody StudentInputDto studentInputDto, @PathVariable("id") String id) {
+        updateStudentPort.update(id, studentInputDto);
     }
 }

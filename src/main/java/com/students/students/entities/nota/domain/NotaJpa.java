@@ -2,7 +2,7 @@ package com.students.students.entities.nota.domain;
 
 
 
-import com.students.students.entities.estudiante.domain.EstudianteJpa;
+import com.students.students.entities.student.domain.StudentJpa;
 import com.students.students.entities.materia.domain.MateriaJpa;
 import com.students.students.entities.nodatabase.BranchEnum;
 import com.students.students.entities.nota.domain.dto.NotaInputDto;
@@ -82,7 +82,7 @@ public class NotaJpa {
 
     @ManyToOne()
     @JoinColumn(name = "fk_student")
-    private EstudianteJpa estudiante;
+    private StudentJpa student;
 
     @ManyToOne()
     @JoinColumn(name = "fk_materia")

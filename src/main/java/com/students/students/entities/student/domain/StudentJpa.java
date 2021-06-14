@@ -1,8 +1,8 @@
-package com.students.students.entities.estudiante.domain;
+package com.students.students.entities.student.domain;
 
 
-import com.students.students.entities.estudiante.domain.dto.EstudianteInputDto;
-import com.students.students.entities.estudiante.domain.dto.EstudianteOutputDto;
+import com.students.students.entities.student.domain.dto.StudentInputDto;
+import com.students.students.entities.student.domain.dto.StudentOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
 import com.students.students.entities.nota.domain.NotaJpa;
 import com.students.students.entities.persona.domain.PersonaJpa;
@@ -20,18 +20,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class EstudianteJpa {
+public class StudentJpa {
 
-    public EstudianteJpa(EstudianteInputDto estudianteInputDto) {
-        setNumHoursWeek(estudianteInputDto.getNumHoursWeek());
-        setComents(estudianteInputDto.getComents());
-        setBranchEnum(estudianteInputDto.getBranchEnum());
+    public StudentJpa(StudentInputDto studentInputDto) {
+        setNumHoursWeek(studentInputDto.getNumHoursWeek());
+        setComents(studentInputDto.getComents());
+        setBranchEnum(studentInputDto.getBranchEnum());
     }
 
-    public EstudianteJpa(EstudianteOutputDto estudianteOutputDto){
-        setNumHoursWeek(estudianteOutputDto.getNumHoursWeek());
-        setComents(estudianteOutputDto.getComents());
-        setBranchEnum(estudianteOutputDto.getBranchEnum());
+    public StudentJpa(StudentOutputDto studentOutputDto){
+        setNumHoursWeek(studentOutputDto.getNumHoursWeek());
+        setComents(studentOutputDto.getComents());
+        setBranchEnum(studentOutputDto.getBranchEnum());
     }
 
     @Id
@@ -63,10 +63,10 @@ public class EstudianteJpa {
     BranchEnum branchEnum;
 
     @OneToOne
-    @JoinColumn (name="fk_persona")
+    @JoinColumn (name="fk_persona", referencedColumnName = "id_persona")
     private PersonaJpa persona;
 
-    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NotaJpa> notaList;
 
 
