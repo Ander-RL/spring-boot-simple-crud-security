@@ -37,6 +37,7 @@ public class CreatePersonaRepository implements CreatePersonaPort {
         checkNulls(personaInputDto);
         checkIfDatesAreCorrect(personaInputDto);
         checkIfUserAndSurnameExists(personaInputDto);
+        checkPasswordLength(personaInputDto);
 
         PersonaJpa personaJpa = new PersonaJpa(personaInputDto);
 
@@ -79,6 +80,12 @@ public class CreatePersonaRepository implements CreatePersonaPort {
                 throw new RestrictionException("persona con nombre usuario: "+ personaInputDto.getUser()
                         + " y surname: " + personaInputDto.getSurname() + " ya existe");
             }
+        }
+    }
+
+    private void checkPasswordLength(PersonaInputDto personaInputDto) {
+        if(personaInputDto.getPassword().length() < 6) {
+            throw new RestrictionException("Password no puede tener menos de 6 caracteres");
         }
     }
 }
