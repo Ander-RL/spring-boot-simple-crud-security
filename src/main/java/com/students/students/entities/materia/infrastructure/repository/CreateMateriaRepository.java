@@ -24,7 +24,7 @@ public class CreateMateriaRepository implements CreateMateriaPort {
     public MateriaOutputDto create(MateriaInputDto materiaInputDto) {
         log.debug("Materia creada -> " + materiaInputDto.toString());
 
-        checkName(materiaInputDto);
+        checkIfNameExists(materiaInputDto);
         checkNulls(materiaInputDto);
 
         MateriaJpa materiaJpa = new MateriaJpa(materiaInputDto);
@@ -37,12 +37,12 @@ public class CreateMateriaRepository implements CreateMateriaPort {
             throw new NullException("Branch no puede ser null");
     }
 
-    private void checkName(MateriaInputDto materiaInputDto) {
+    private void checkIfNameExists(MateriaInputDto materiaInputDto) {
         List<MateriaJpa> listaMateria = repository.findAll();
 
         for(MateriaJpa materiaJpa : listaMateria) {
             if(materiaJpa.getName().equals(materiaInputDto.getName())) {
-                throw new RestrictionException("materia con nombre"+ materiaJpa.getName() + " ya existe");
+                throw new RestrictionException("materia con nombre "+ materiaJpa.getName() + " ya existe");
             }
         }
     }
