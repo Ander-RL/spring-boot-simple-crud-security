@@ -17,7 +17,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.*;
 
-import static springfox.documentation.builders.PathSelectors.regex;
 
 @Slf4j
 @Configuration
@@ -25,7 +24,6 @@ import static springfox.documentation.builders.PathSelectors.regex;
 public class SwaggerConfiguration {
 
     public static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String DEFAULT_INCLUDE_PATTERN = "/**";
 
     @Bean
     public Docket swaggerSpringfoxDocket() {
