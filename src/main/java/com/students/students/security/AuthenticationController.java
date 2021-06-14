@@ -4,6 +4,7 @@ import com.students.students.security.models.AuthenticationRequest;
 import com.students.students.security.models.AuthenticationResponse;
 import com.students.students.security.services.MyUserDetailsService;
 import com.students.students.security.util.JwtUtil;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+@Api(tags = "Authentication")
 @RestController
 public class AuthenticationController {
 
