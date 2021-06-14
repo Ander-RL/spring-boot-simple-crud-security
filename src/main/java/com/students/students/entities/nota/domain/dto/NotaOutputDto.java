@@ -2,6 +2,7 @@ package com.students.students.entities.nota.domain.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.students.students.entities.materia.domain.MateriaJpa;
 import com.students.students.entities.nodatabase.BranchEnum;
 import com.students.students.entities.nota.domain.NotaJpa;
 import lombok.AllArgsConstructor;
