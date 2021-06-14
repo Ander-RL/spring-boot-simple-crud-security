@@ -62,5 +62,4 @@ public class MateriaJpa {
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudyJpa> studyList;
-
 }
