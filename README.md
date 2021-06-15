@@ -34,10 +34,14 @@
     <li>study</li>
     <li>tiporegistro</li>
 </ul>
+<hr/>
 <h2>Security</h2>
 <h4>Spring Security</h4>
 <h4>JWT</h4>
+<hr/>
 <h2>Data Base</h2>
 <h4>Postgres SQL & H2</h4>
+<hr/>
 <h2>Swagger 2</h2>
 <h4>localhost:8080/swagger-ui.html</h4>
+<hr/>
