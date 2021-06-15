@@ -73,11 +73,11 @@ public class StudyJpa {
     private Date finishDate;
 
     @ManyToOne()
-    @JoinColumn(name = "fk_student")
+    @JoinColumn(name = "id_student", insertable = false, updatable = false)
     private StudentJpa student;
 
     @ManyToOne()
-    @JoinColumn(name = "fk_materia")
+    @JoinColumn(name = "id_materia", insertable = false, updatable = false)
     private MateriaJpa materia;
 
 }
