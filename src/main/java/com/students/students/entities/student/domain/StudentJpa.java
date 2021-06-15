@@ -6,6 +6,7 @@ import com.students.students.entities.student.domain.dto.StudentOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
 import com.students.students.entities.nota.domain.NotaJpa;
 import com.students.students.entities.persona.domain.PersonaJpa;
+import com.students.students.entities.study.domain.StudyJpa;
 import com.students.students.generator.StringPrefixedSequenceIdGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
