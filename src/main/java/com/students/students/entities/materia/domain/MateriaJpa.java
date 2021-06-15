@@ -1,5 +1,6 @@
 package com.students.students.entities.materia.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.students.students.entities.materia.domain.dto.MateriaInputDto;
 import com.students.students.entities.materia.domain.dto.MateriaOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -33,6 +35,7 @@ public class MateriaJpa {
         this.name = materiaOutputDto.getName();
         this.description = materiaOutputDto.getDescription();
         this.branch = materiaOutputDto.getBranch();
+        this.notaList = materiaOutputDto.getNotaList();
     }
 
     @Id
@@ -58,7 +61,8 @@ public class MateriaJpa {
     private BranchEnum branch;
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NotaJpa> notaList;
+    @JsonIgnore
+    private List<NotaJpa> notaList = new ArrayList<>();
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StudyJpa> studyList;

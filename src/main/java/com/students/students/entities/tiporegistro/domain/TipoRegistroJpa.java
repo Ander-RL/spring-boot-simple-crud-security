@@ -60,7 +60,6 @@ public class TipoRegistroJpa {
     @Column(name = "activo")
     private Boolean activo;
 
-
     @OneToMany(mappedBy = "tipoRegistro", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NotaJpa> notaList;
 }
