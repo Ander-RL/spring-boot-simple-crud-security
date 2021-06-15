@@ -2,6 +2,7 @@ package com.students.students.entities.nota.domain;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.students.students.entities.student.domain.StudentJpa;
 import com.students.students.entities.materia.domain.MateriaJpa;
 import com.students.students.entities.nodatabase.BranchEnum;
@@ -81,15 +82,18 @@ public class NotaJpa {
     private Date creationDate;
 
     @ManyToOne()
-    @JoinColumn(name = "fk_student")
+    @JoinColumn(name = "id_student", insertable = false, updatable = false)
+    @JsonIgnore
     private StudentJpa student;
 
     @ManyToOne()
-    @JoinColumn(name = "fk_materia")
+    @JoinColumn(name = "id_materia", insertable = false, updatable = false)
+    @JsonIgnore
     private MateriaJpa materia;
 
     @ManyToOne()
-    @JoinColumn(name = "fk_tipo_registro")
+    @JoinColumn(name = "id_tipo_registro", insertable = false, updatable = false)
+    @JsonIgnore
     private TipoRegistroJpa tipoRegistro;
 
 }

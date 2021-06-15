@@ -63,11 +63,9 @@ public class StudentJpa {
     BranchEnum branchEnum;
 
     @OneToOne
-    @JoinColumn (name="fk_persona", referencedColumnName = "id_persona")
+    @JoinColumn (name="id_persona", referencedColumnName = "id_persona", insertable = false, updatable = false)
     private PersonaJpa persona;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NotaJpa> notaList;
-
-
 }

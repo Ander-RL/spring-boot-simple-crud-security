@@ -1,5 +1,6 @@
 package com.students.students.entities.materia.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.students.students.entities.materia.domain.dto.MateriaInputDto;
 import com.students.students.entities.materia.domain.dto.MateriaOutputDto;
 import com.students.students.entities.nodatabase.BranchEnum;
@@ -59,6 +60,7 @@ public class MateriaJpa {
     private BranchEnum branch;
 
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<NotaJpa> notaList = new ArrayList<>();
 
 }
