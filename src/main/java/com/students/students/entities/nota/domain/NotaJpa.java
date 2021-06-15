@@ -28,23 +28,23 @@ import java.util.Date;
 public class NotaJpa {
 
     public NotaJpa(NotaInputDto notaInputDto) {
-        setIdStudent(notaInputDto.getIdStudent());
-        setIdMateria(notaInputDto.getIdMateria());
-        setIdTipoRegistro(notaInputDto.getIdTipoRegistro());
-        setNote(notaInputDto.getNote());
-        setComent(notaInputDto.getComent());
-        setBranchEnum(notaInputDto.getBranchEnum());
-        setCreationDate(notaInputDto.getCreationDate());
+        this.idStudent = notaInputDto.getIdStudent();
+        this.idMateria = notaInputDto.getIdMateria();
+        this.idTipoRegistro = notaInputDto.getIdTipoRegistro();
+        this.note = notaInputDto.getNote();
+        this.coment = notaInputDto.getComent();
+        this.branchEnum = notaInputDto.getBranchEnum();
+        this.creationDate = notaInputDto.getCreationDate();
     }
 
     public NotaJpa(NotaOutputDto notaOutputDto) {
-        setIdStudent(notaOutputDto.getIdStudent());
-        setIdMateria(notaOutputDto.getIdMateria());
-        setIdTipoRegistro(notaOutputDto.getIdTipoRegistro());
-        setNote(notaOutputDto.getNote());
-        setComent(notaOutputDto.getComent());
-        setBranchEnum(notaOutputDto.getBranchEnum());
-        setCreationDate(notaOutputDto.getCreationDate());
+        this.idStudent = notaOutputDto.getIdStudent();
+        this.idMateria = notaOutputDto.getIdMateria();
+        this.idTipoRegistro = notaOutputDto.getIdTipoRegistro();
+        this.note = notaOutputDto.getNote();
+        this.coment = notaOutputDto.getComent();
+        this.branchEnum = notaOutputDto.getBranchEnum();
+        this.creationDate = notaOutputDto.getCreationDate();
     }
 
     @Id

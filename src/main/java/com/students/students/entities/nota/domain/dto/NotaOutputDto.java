@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.students.students.entities.materia.domain.MateriaJpa;
 import com.students.students.entities.nodatabase.BranchEnum;
 import com.students.students.entities.nota.domain.NotaJpa;
+import com.students.students.entities.student.domain.StudentJpa;
+import com.students.students.entities.tiporegistro.domain.TipoRegistroJpa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

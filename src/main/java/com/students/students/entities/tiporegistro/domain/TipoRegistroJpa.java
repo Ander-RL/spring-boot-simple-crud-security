@@ -27,8 +27,8 @@ import java.util.TimeZone;
 public class TipoRegistroJpa {
 
     public TipoRegistroJpa(TipoRegistroInputDto tipoRegistroInputDto) {
-        setName(tipoRegistroInputDto.getName());
-        setLastUpdate(tipoRegistroInputDto.getLastUpdate());
+        this.name = tipoRegistroInputDto.getName();
+        this.lastUpdate = tipoRegistroInputDto.getLastUpdate();
         this.activo = tipoRegistroInputDto.getActivo();
     }
 
@@ -36,6 +36,7 @@ public class TipoRegistroJpa {
         this.name = tipoRegistroOutputDto.getName();
         this.lastUpdate = tipoRegistroOutputDto.getLastUpdate();
         this.activo = tipoRegistroOutputDto.getActivo();
+        this.notaList = tipoRegistroOutputDto.getNotaList();
     }
 
     @Id
