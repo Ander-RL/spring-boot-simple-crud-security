@@ -36,6 +36,7 @@ public class MateriaJpa {
         this.description = materiaOutputDto.getDescription();
         this.branch = materiaOutputDto.getBranch();
         this.notaList = materiaOutputDto.getNotaList();
+        this.studyList = materiaOutputDto.getStudyList();
     }
 
     @Id

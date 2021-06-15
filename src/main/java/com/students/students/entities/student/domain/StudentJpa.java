@@ -33,6 +33,7 @@ public class StudentJpa {
         this.numHoursWeek = studentOutputDto.getNumHoursWeek();
         this.coments = studentOutputDto.getComents();
         this.branchEnum = studentOutputDto.getBranchEnum();
+        this.notaList = studentOutputDto.getNotaList();
     }
 
     @Id
